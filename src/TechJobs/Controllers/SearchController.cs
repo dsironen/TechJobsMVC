@@ -20,10 +20,10 @@ namespace TechJobs.Controllers
         {
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
             ViewBag.columns = ListController.columnChoices;
-
+            
             if (searchType == "all")
             {
-                jobs = JobData.FindByValue(searchTerm);
+                jobs = JobData.FindAll();
             }
             else
             {
@@ -32,6 +32,7 @@ namespace TechJobs.Controllers
 
             ViewBag.jobs = jobs;
             return View("index");
+
         }
     }
 }
